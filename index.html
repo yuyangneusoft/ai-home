@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI工具导航 - 一站式AI资源平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #E31937;
+            --bg-dark: #000000;
+        }
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, var(--primary-color), rgba(227, 25, 55, 0.5));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tool-card {
+            transition: all 0.3s ease;
+        }
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(227, 25, 55, 0.2);
+        }
+        .category-title {
+            position: relative;
+            padding-left: 1rem;
+            margin-bottom: 2rem;
+        }
+        .category-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 24px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        .category-btn {
+            transition: all 0.3s ease;
+        }
+        .category-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(227, 25, 55, 0.2);
+        }
+        .tool-section {
+            display: block;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- 导航栏 -->
+    <nav class="fixed w-full bg-black/80 backdrop-blur-sm z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold gradient-text">AI工具导航. 最具影响力的国产与国际AI工具精选</h1>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-white hover:text-red-500 transition">首页</a>
+                    <a href="#" class="text-white hover:text-red-500 transition">分类</a>
+                    <a href="#" class="text-white hover:text-red-500 transition">关于</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-4 pt-24">
+        <!-- 搜索区域 -->
+        <div class="max-w-2xl mx-auto mb-12">
+            <div class="relative">
+                <input type="text" 
+                       placeholder="搜索AI工具..." 
+                       class="w-full px-6 py-4 rounded-full bg-white/10 border border-white/20 focus:border-red-500 focus:outline-none text-white">
+                <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-red-500">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 分类标签 -->
+        <div class="flex flex-wrap gap-4 mb-12 justify-center">
+            <button class="category-btn active px-6 py-2 rounded-full bg-red-500 text-white hover:bg-red-600 transition" data-category="all">全部</button>
+            <button class="category-btn px-6 py-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition" data-category="chat">AI聊天</button>
+            <button class="category-btn px-6 py-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition" data-category="search">AI搜索</button>
+            <button class="category-btn px-6 py-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition" data-category="code">AI编程</button>
+            <button class="category-btn px-6 py-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition" data-category="draw">AI绘画</button>
+            <button class="category-btn px-6 py-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition" data-category="music">AI音乐</button>
+            <button class="category-btn px-6 py-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition" data-category="video">AI视频</button>
+            <button class="category-btn px-6 py-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition" data-category="agent">AI智能体</button>
+            <button class="category-btn px-6 py-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition" data-category="digital">AI数字人</button>
+            <button class="category-btn px-6 py-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition" data-category="research">AI研究</button>
+            <button class="category-btn px-6 py-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition" data-category="design">AI设计</button>
+            <button class="category-btn px-6 py-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition" data-category="deploy">网页布署</button>
+            <button class="category-btn px-6 py-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition" data-category="others">其他工具</button>
+        </div>
+
+        <!-- AI聊天工具 -->
+        <section class="tool-section mb-16" data-category="chat">
+            <h2 class="category-title text-2xl font-bold mb-8">AI聊天</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- DeepSeek -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                            <i class="fas fa-brain text-blue-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">DeepSeek</h3>
+                            <p class="text-sm text-gray-400">国之大器</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">超长上下文（128K tokens），精准中文理解，支持文件上传解析。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://www.deepseek.com" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+
+           
+
+                <!-- 豆包 -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-green-500/20 flex items-center justify-center">
+                            <i class="fas fa-comments text-green-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">豆包</h3>
+                            <p class="text-sm text-gray-400">字节跳动</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">强场景化助手，支持语音交互，轻度娱乐向。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://www.doubao.com" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- 腾讯元宝 -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                            <i class="fab fa-weixin text-blue-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">腾讯元宝</h3>
+                            <p class="text-sm text-gray-400">腾讯</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">深度融入腾讯生态，微信接入，打造无缝AI体验。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://yuanbao.tencent.com/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- ChatGPT -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-green-500/20 flex items-center justify-center">
+                            <i class="fas fa-robot text-green-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">ChatGPT</h3>
+                            <p class="text-sm text-gray-400">OpenAI</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">多模态GPT-4模型，支持图片/语音/代码交互，全球知识库覆盖最广。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">付费</span>
+                        <a href="https://chat.openai.com" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+ 
+                <!-- 新增KIMI -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-orange-500/20 flex items-center justify-center">
+                            <i class="fas fa-comment-dots text-orange-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">KIMI</h3>
+                            <p class="text-sm text-gray-400">月之暗面</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">支持超长上下文、精准中文理解，适合多场景AI对话。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://www.kimi.com" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- Google Gemini -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                            <i class="fas fa-star text-blue-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">Google Gemini</h3>
+                            <p class="text-sm text-gray-400">Google</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">Google旗下多模态大模型对话平台，支持多语言与多模态交互。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费/付费</span>
+                        <a href="https://gemini.google.com/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+ 
+   
+        </section>
+
+     <!-- AI智能体 -->
+        <section class="tool-section mb-16" data-category="agent">
+            <h2 class="category-title text-2xl font-bold mb-8">AI智能体</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Coze -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                            <i class="fas fa-robot text-blue-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">Coze</h3>
+                            <p class="text-sm text-gray-400">字节跳动</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">可视化工作流设计，生态完善，多场景覆盖，多模态能力。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://www.coze.cn" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- 阿里百炼 -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-orange-500/20 flex items-center justify-center">
+                            <i class="fas fa-brain text-orange-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">阿里百炼</h3>
+                            <p class="text-sm text-gray-400">阿里云</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">零代码开发，RAG优化，生态集成，多模态支持。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">付费</span>
+                        <a href="https://bailian.aliyun.com" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- 新增GENSPARK -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-pink-500/20 flex items-center justify-center">
+                            <i class="fas fa-bolt text-pink-500 text-xl"></i>
+                      
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">GENSPARK</h3>
+                            <p class="text-sm text-gray-400">智能体平台</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">多场景智能体开发与应用平台，支持可视化与自动化智能体构建。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://www.genspark.ai/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+          
+   
+
+
+
+<!-- 新增Manus -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-orange-500/20 flex items-center justify-center">
+                          
+        <i class="fab fa-github text-gray-800 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">Manus</h3>
+                            <p class="text-sm text-gray-400">Manus</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">通用型 AI 助手，能将想法转化为行动：不止于思考，更注重成果。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://manus.im/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+              
+                </div>
+
+<!-- 天工智能体 -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-orange-500/20 flex items-center justify-center">
+                            <i class="fas fa-comment-dots text-orange-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">天工超级智能体</h3>
+                            <p class="text-sm text-gray-400">昆仑万维</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">一款具备超强DeepResearch能力的全新AI Office智能体。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://www.tiangong.cn/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                
+            </div>
+        </section>
+
+        <!-- AI搜索工具 -->
+        <section class="tool-section mb-16" data-category="search">
+            <h2 class="category-title text-2xl font-bold mb-8">AI搜索</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 纳米搜索 -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                            <i class="fas fa-search text-purple-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">纳米搜索</h3>
+                            <p class="text-sm text-gray-400">360</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">中文互联网深度净化搜索，智能去噪技术，多维度结果优化。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://www.n.cn/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- 秘塔搜索 -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-yellow-500/20 flex items-center justify-center">
+                            <i class="fas fa-database text-yellow-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">秘塔搜索</h3>
+                            <p class="text-sm text-gray-400">AI知识图谱</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">专业人士、精准答案。墙裂推荐:今天学了点啥</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://www.metaso.cn" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI编程工具 -->
+        <section class="tool-section mb-16" data-category="code">
+            <h2 class="category-title text-2xl font-bold mb-8">AI编程</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Trae -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                            <i class="fas fa-code text-blue-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">Trae</h3>
+                            <p class="text-sm text-gray-400">字节跳动</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">无代码自动化，跨平台连接，AI优化建议。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://www.trae.ai/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- Cursor -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                            <i class="fas fa-laptop-code text-purple-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">Cursor</h3>
+                            <p class="text-sm text-gray-400">AI代码编辑器</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">AI代码生成与补全，代码深度交互，团队协作。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费版可用</span>
+                        <a href="https://www.cursor.com" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- Google AI Studio -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                            <i class="fas fa-terminal text-blue-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">Google AI Studio</h3>
+                            <p class="text-sm text-gray-400">Google</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">Google大模型开发与测试平台，快速集成Gemini系列模型。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://aistudio.google.com/apps" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- 灵光 -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-indigo-500/20 flex items-center justify-center">
+                            <i class="fas fa-lightbulb text-indigo-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">灵光</h3>
+                            <p class="text-sm text-gray-400">全模态AI助手</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">全模态AI助手，支持智能编程辅助、代码问答与创作。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://www.lingguang.com/chat" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- Stitch -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                            <i class="fas fa-project-diagram text-blue-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">Stitch</h3>
+                            <p class="text-sm text-gray-400">Google</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">Google创意项目平台，展示与探索各种前沿AI创意应用，支持编程创意实现。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://stitch.withgoogle.com/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI绘画工具 -->
+        <section class="tool-section mb-16" data-category="draw">
+            <h2 class="category-title text-2xl font-bold mb-8">AI绘画</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 即梦 -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-pink-500/20 flex items-center justify-center">
+                            <i class="fas fa-paint-brush text-pink-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">即梦</h3>
+                            <p class="text-sm text-gray-400">字节跳动</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">专为中文用户优化，擅长电商广告/社交媒体配图生成。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">每日赠送60积分</span>
+                        <a href="https://jimeng.jianying.com/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- 可图 -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-yellow-500/20 flex items-center justify-center">
+                            <i class="fas fa-image text-yellow-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">可图</h3>
+                            <p class="text-sm text-gray-400">快手</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">高精度AI视觉处理，擅长AI换装、换脸、老照片修复。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">每日免费50张</span>
+                        <a href="https://app.klingai.com" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- Midjourney -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                            <i class="fas fa-palette text-purple-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">Midjourney</h3>
+                            <p class="text-sm text-gray-400">艺术创作天花板</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">AI绘画领域最强，艺术创作天花板，需通过Discord使用。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">付费</span>
+                        <a href="https://www.midjourney.com" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- RemovePhotos -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-red-500/20 flex items-center justify-center">
+                            <i class="fas fa-eraser text-red-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">RemovePhotos</h3>
+                            <p class="text-sm text-gray-400">背景移除</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">一键抠图、去除图片背景，简单高效的在线工具。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://remove.photos/zh-cn/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI音乐工具 -->
+        <section class="tool-section mb-16" data-category="music">
+            <h2 class="category-title text-2xl font-bold mb-8">AI音乐</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 海绵音乐 -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                            <i class="fas fa-music text-blue-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">海绵音乐</h3>
+                            <p class="text-sm text-gray-400">字节跳动</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">中文友好，支持中文歌词生成，AI歌手库，短视频适配。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://www.haimian.com/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- Suno -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-green-500/20 flex items-center justify-center">
+                            <i class="fas fa-headphones text-green-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">Suno</h3>
+                            <p class="text-sm text-gray-400">全球顶级音质</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">专业级编曲，多语言生成，风格多样性，支持API接入。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">付费 </span>
+                        <a href="https://www.suno.ai" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI视频工具 -->
+        <section class="tool-section mb-16" data-category="video">
+            <h2 class="category-title text-2xl font-bold mb-8">AI视频</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 可灵 -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-red-500/20 flex items-center justify-center">
+                            <i class="fas fa-video text-red-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">可灵</h3>
+                            <p class="text-sm text-gray-400">AI视频创作</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">实时渲染技术，AI语音同步，素材市场。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">付费</span>
+                        <a href="https://app.klingai.com/cn/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- 海螺AI -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                            <i class="fas fa-film text-purple-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">海螺AI</h3>
+                            <p class="text-sm text-gray-400">数字人视频生成</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">情绪引擎3.0，物理模拟系统，行业解决方案。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">付费</span>
+                        <a href="https://www.hailuoai.com" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- AI Video Maker -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-red-500/20 flex items-center justify-center">
+                            <i class="fas fa-play-circle text-red-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">AI Video Maker</h3>
+                            <p class="text-sm text-gray-400">视频生成</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">免费在线AI视频生成工具，无需注册即可体验。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://aivideomaker.ai/zh" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+   
+
+        <!-- AI数字人 -->
+        <section class="tool-section mb-16" data-category="digital">
+            <h2 class="category-title text-2xl font-bold mb-8">AI数字人</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+             
+<!-- 腾讯智影 -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-green-500/20 flex items-center justify-center">
+                            <i class="fas fa-video text-green-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">heygen</h3>
+                            <p class="text-sm text-gray-400">先驱者</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">目前效果最好的AI数字人工具。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">付费</span>
+                        <a href="https://www.heygen.com/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+
+   <!-- 百度曦灵 -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10 relative group">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                            <i class="fas fa-user-circle text-blue-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">百度曦灵</h3>
+                            <p class="text-sm text-gray-400">百度智能云</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">数字人定制，实时驱动，场景编排，智能对话。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">付费</span>
+                        <a href="https://xiling.cloud.baidu.com" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                       
+                    </div>
+                  
+                </div>
+
+                
+
+                <!-- 蝉镜 -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                            <i class="fas fa-camera text-purple-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">蝉镜</h3>
+                            <p class="text-sm text-gray-400">数字人短视频</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">一键生成，批量制作，模板系统。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">付费</span>
+                        <a href="https://www.chanjing.cc/people" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI研究工具 -->
+        <section class="tool-section mb-16" data-category="research">
+            <h2 class="category-title text-2xl font-bold mb-8">AI研究</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Google NotebookLM -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                            <i class="fas fa-book-open text-blue-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">Google NotebookLM</h3>
+                            <p class="text-sm text-gray-400">Google</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">AI研究工具，可上传文档生成摘要、问答和播客式对话。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://notebooklm.google/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- NOTEX -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-green-500/20 flex items-center justify-center">
+                            <i class="fas fa-sticky-note text-green-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">NOTEX</h3>
+                            <p class="text-sm text-gray-400">个人知识库</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">个人知识库工具，高效管理与检索个人信息与笔记。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://notex.rpcx.io/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- SpeedAI科研小助手 -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                            <i class="fas fa-graduation-cap text-purple-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">SpeedAI科研小助手</h3>
+                            <p class="text-sm text-gray-400">科研辅助</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">论文降重、降AI率，支持知网/维普/万方等主流平台。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费/付费</span>
+                        <a href="https://kuaipaper.com/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- SlideDeckCleaner -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-yellow-500/20 flex items-center justify-center">
+                            <i class="fas fa-magic text-yellow-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">SlideDeckCleaner</h3>
+                            <p class="text-sm text-gray-400">PPT优化</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">去除NotebookLM生成PPT中的水印，提升演示文档质量。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://www.slidedeckcleaner.com/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI设计工具 -->
+        <section class="tool-section mb-16" data-category="design">
+            <h2 class="category-title text-2xl font-bold mb-8">AI设计</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Napkin AI -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-orange-500/20 flex items-center justify-center">
+                            <i class="fas fa-chart-pie text-orange-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">Napkin AI</h3>
+                            <p class="text-sm text-gray-400">可视化图表</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">用AI将文字转化为可视化故事图表，快速生成精美视觉内容。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://www.napkin.ai/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- 星流 -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-pink-500/20 flex items-center justify-center">
+                            <i class="fas fa-drafting-compass text-pink-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">星流</h3>
+                            <p class="text-sm text-gray-400">设计Agent</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">新一代AI设计Agent，通过智能交互辅助完成各类设计任务。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://www.xingliu.art/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- PicDoc -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                            <i class="fas fa-file-image text-blue-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">PicDoc</h3>
+                            <p class="text-sm text-gray-400">信息图生成</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">文本转可视化信息图，1秒生成，极大提高内容创作效率。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://www.picdoc.cn/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- Lovart AI -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-pink-500/20 flex items-center justify-center">
+                            <i class="fas fa-heart text-pink-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">Lovart AI</h3>
+                            <p class="text-sm text-gray-400">艺术设计</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">艺术与设计相关的AI工具，激发无限创意，辅助视觉创作。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://www.lovart.ai/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 其他工具 -->
+        <section class="tool-section mb-16" data-category="others">
+            <h2 class="category-title text-2xl font-bold mb-8">其他工具</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- OpenMAIC -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-teal-500/20 flex items-center justify-center">
+                            <i class="fas fa-chalkboard-teacher text-teal-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">OpenMAIC</h3>
+                            <p class="text-sm text-gray-400">AI教学</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">AI教学与互动平台，探索人工智能在教育领域的应用。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://open.maic.chat/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- OKZTWO -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-gray-500/20 flex items-center justify-center">
+                            <i class="fas fa-globe text-gray-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">OKZTWO</h3>
+                            <p class="text-sm text-gray-400">综合导航</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">综合性AI resource与工具导航平台（功能持续更新中）。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://www.okzweb.com/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- Whisk -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-orange-500/20 flex items-center justify-center">
+                            <i class="fas fa-flask text-orange-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">Whisk</h3>
+                            <p class="text-sm text-gray-400">Google Labs</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">Google实验室创意工具，提供独特的AI交互与创作体验。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">实验性</span>
+                        <a href="https://labs.google/fx/tools/whisk/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+
+                <!-- Google AI -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-blue-600/20 flex items-center justify-center">
+                            <i class="fab fa-google text-blue-600 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">Google AI</h3>
+                            <p class="text-sm text-gray-400">Google</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">Google人工智能整体介绍与资源，涵盖研究成果与开发工具。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">资源库</span>
+                        <a href="https://ai.google/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 网页布署工具 -->
+        <section class="tool-section mb-16" data-category="deploy">
+            <h2 class="category-title text-2xl font-bold mb-8">网页布署</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- GitHub Pages -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10 relative group">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-gray-800/20 flex items-center justify-center">
+                            <i class="fab fa-github text-gray-800 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">GitHub Pages</h3>
+                            <p class="text-sm text-gray-400">开源项目文档、个人博客</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">与GitHub生态无缝集成 。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://www.github.com" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+                <!-- Netlify -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-green-500/20 flex items-center justify-center">
+                            <i class="fas fa-cloud text-green-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">Netlify</h3>
+                            <p class="text-sm text-gray-400">静态网站、JAMStack、前端项目</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">自动化部署、Serverless支持。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://www.netlify.com/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+                <!-- Cloudflare Pages -->
+                <div class="tool-card bg-white/5 rounded-xl p-6 border border-white/10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-orange-500/20 flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-orange-500 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-white">Cloudflare Pages</h3>
+                            <p class="text-sm text-gray-400">高性能静态站、安全防护需求</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">内置DDoS防护，边缘计算。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">免费可用</span>
+                        <a href="https://pages.cloudflare.com/" target="_blank" class="text-red-500 hover:text-red-400 transition">访问 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="mt-20 py-8 border-t border-white/10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-400">© 2025 AI工具全景图. 成都东软学院   余阳.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取所有分类按钮和工具区域
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const toolSections = document.querySelectorAll('.tool-section');
+
+            // 为每个分类按钮添加点击事件
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // 移除所有按钮的active类
+                    categoryButtons.forEach(btn => {
+                        btn.classList.remove('active', 'bg-red-500');
+                        btn.classList.add('bg-white/10');
+                    });
+
+                    // 为当前点击的按钮添加active类
+                    this.classList.add('active', 'bg-red-500');
+                    this.classList.remove('bg-white/10');
+
+                    // 获取选中的分类
+                    const selectedCategory = this.getAttribute('data-category');
+
+                    // 显示/隐藏相应的工具区域
+                    toolSections.forEach(section => {
+                        if (selectedCategory === 'all' || section.getAttribute('data-category') === selectedCategory) {
+                            section.style.display = 'block';
+                        } else {
+                            section.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // 搜索功能
+            const searchInput = document.querySelector('input[type="text"]');
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const toolCards = document.querySelectorAll('.tool-card');
+
+                toolCards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('p').textContent.toLowerCase();
+                    const category = card.closest('.tool-section').getAttribute('data-category');
+
+                    if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                        card.style.display = 'block';
+                        // 如果当前分类被选中，显示其父section
+                        if (document.querySelector('.category-btn.active').getAttribute('data-category') === 'all' ||
+                            document.querySelector('.category-btn.active').getAttribute('data-category') === category) {
+                            card.closest('.tool-section').style.display = 'block';
+                        }
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+
+            // 默认显示所有section
+            document.querySelectorAll('.tool-section').forEach(section => {
+                section.style.display = 'block';
+            });
+
+            // 说明浮层功能
+            document.querySelectorAll('.tool-card').forEach(card => {
+                const infoBtn = card.querySelector('.info-btn');
+                const infoPop = card.querySelector('.info-pop');
+                if (infoBtn && infoPop) {
+                    infoBtn.addEventListener('mouseenter', () => {
+                        infoPop.style.display = 'block';
+                    });
+                    infoBtn.addEventListener('mouseleave', () => {
+                        infoPop.style.display = 'none';
+                    });
+                    infoPop.addEventListener('mouseenter', () => {
+                        infoPop.style.display = 'block';
+                    });
+                    infoPop.addEventListener('mouseleave', () => {
+                        infoPop.style.display = 'none';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
